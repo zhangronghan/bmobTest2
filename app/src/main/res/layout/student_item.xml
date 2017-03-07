@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="80dp">
+
+    <ImageView
+        android:id="@+id/iv_stu"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+    <TextView
+        android:id="@+id/tv_stuName"
+        android:hint="姓名"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/tv_stuId"
+        android:hint="ID"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
+
+    <ImageView
+        android:id="@+id/iv_del"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_delete"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>
