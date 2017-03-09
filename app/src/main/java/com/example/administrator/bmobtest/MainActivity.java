@@ -14,6 +14,7 @@ import java.util.List;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements onDelListener,onI
     private MyAdapter myAdapter;
     private onItemClickListener mOnItemClickListener;
     private List<Student> stuList=new ArrayList<Student>();
+    private Button btnLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,11 @@ public class MainActivity extends AppCompatActivity implements onDelListener,onI
         setContentView(R.layout.activity_main);
 
         Bmob.initialize(this,"5fb59b4c3c9f91b5de88d35c51cbb0a8");
+
+        whetherLogin();
+
+
+
 
         initViews();
 
@@ -44,19 +51,39 @@ public class MainActivity extends AppCompatActivity implements onDelListener,onI
         myAdapter.notifyDataSetChanged();
     }
 
+    private void whetherLogin() {
+        BmobUser user=BmobUser.getCurrentUser();
+        if(user==null){
+            startActivity(new Intent(MainActivity.this,loginActivity.class));
+        }
+
+    }
+
 
     private void initViews() {
         mRecyclerView= (RecyclerView) findViewById(R.id.recyclerview);
         btnAdd= (Button) findViewById(R.id.btn_add);
+        btnLog= (Button) findViewById(R.id.btn_log);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,ActivityB.class);
                 startActivity(intent);
-
             }
         });
+
+        btnLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BmobUser.logOut();
+                BmobUser currentUser=BmobUser.getCurrentUser();
+                if(currentUser==null) {
+                    startActivity(new Intent(MainActivity.this, loginActivity.class));
+                }
+            }
+        });
+
 
     }
 

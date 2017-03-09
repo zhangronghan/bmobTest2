@@ -15,12 +15,33 @@
         android:layout_weight="1"
         />
 
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
     <Button
         android:id="@+id/btn_add"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:text="添加"
         />
+
+    <Button
+        android:id="@+id/btn_log"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="退出登录"/>
+
+
+
+
+</LinearLayout>
+
 
 </LinearLayout>
